@@ -46,18 +46,17 @@ services:
         ports:
             - "${POSTGRES_PORT}:5432"
         volumes:
-            - postgres_database:/var/lib/postgresql/data
+            - ${POSTGRES_DATA_PATH}:/var/lib/postgresql/data 
             - ${POSTGRES_INITIAL_SCHEMA}:/docker-entrypoint-initdb.d/0.backup.sql
             - ${POSTGRES_INITIAL_DATA}:/docker-entrypoint-initdb.d/1.data.sql       
         environment:
             - POSTGRES_DB=${POSTGRES_DB}
             - POSTGRES_USER=${POSTGRES_USER}
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - PGDATA=/var/lib/postgresql/data/pgdata
         networks:
             - mapas-network 
 
-volumes:
-    postgres_database:
 networks:
     mapas-network:
         driver: bridge

@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+cd /var/www/html/mapasculturais/src/protected
+rm -rf ./DoctrineProxies
+mkdir DoctrineProxies
+chmod 777 DoctrineProxies
+
 cd /var/www/html/mapasculturais/scripts
 ./deploy.sh
 
