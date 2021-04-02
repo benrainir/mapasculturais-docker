@@ -3,5 +3,4 @@ www
 www/*
 www/mapasculturais
 www/mapasculturais/*
-./docker/services/postgresql/data
-./docker/services/postgresql/data/*
+.docker/services/postgresql/data/pgdata
